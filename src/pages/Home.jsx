@@ -2,7 +2,7 @@ function Home() {
   return (
     <section id="home" className="home-section">
       <div className="intro">
-        <h1>Fahmy Hajare | Développeur Web Full-Stack</h1>
+        <h1>Fahmy Hajare  | Développeur Web Full-Stack</h1>
         <p>
           "Architecte de solutions numériques, je conçois des applications web complètes, 
           de l'interface utilisateur interactive à la gestion de bases de données complexes. 

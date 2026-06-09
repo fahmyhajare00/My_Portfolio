@@ -3,7 +3,7 @@ import ProjectCard from "../components/ProjectCard";
 import Jewelry from '../pages/Jewelry.png';
 import Bijouya from '../pages/Bijouya.png';
 import BeldiRoyal from '../pages/BeldiRoyal.png';
-import Handcity from '../pages/Handcity.png';
+import HandCity from '../pages/HandCity.png';
 
 function Projects() {
   const projects = [
@@ -29,7 +29,7 @@ function Projects() {
       title: "HandCity",
       description: "Plateforme web en cours avec React.js",
       tech: ["React.js", "CSS3", "JavaScript"],
-      img: Handcity,
+      img: HandCity,
     },
   ];
 

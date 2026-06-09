@@ -31,7 +31,7 @@ function Footer() {
           <FaLinkedin />
         </a>
         <a
-          href="https://github.com/hajarefahmy00"
+          href="https://github.com/fahmyhajare00"
           target="_blank"
           rel="noopener noreferrer"
           title="GitHub"

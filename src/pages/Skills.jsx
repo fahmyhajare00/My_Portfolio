@@ -1,5 +1,5 @@
 function Skills() {
-  const skills = ["HTML5", "CSS3", "JavaScript", "React.js", "PHP", "MySQL"];
+  const skills = ["HTML5", "CSS3", "JavaScript", "React.js", "PHP", "MySQL","Python","Laravel","Oracle"];
   return (
     <section id="skills" className="skills-section">
       <h2>Mes Compétences</h2>
