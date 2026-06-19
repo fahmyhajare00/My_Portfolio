@@ -3,7 +3,8 @@ import ProjectCard from "../components/ProjectCard";
 import Jewelry from '../pages/Jewelry.png';
 import Bijouya from '../pages/Bijouya.png';
 import BeldiRoyal from '../pages/BeldiRoyal.png';
-import HandCity from '../pages/HandCity.png';
+import handCity from '../pages/handCity.png';
+import GesEmpl from '../pages/GesEmpl.png';
 
 function Projects() {
   const projects = [
@@ -27,9 +28,15 @@ function Projects() {
     },
     {
       title: "HandCity",
-      description: "Plateforme web en cours avec React.js",
-      tech: ["React.js", "CSS3", "JavaScript"],
-      img: HandCity,
+      description: "Plateforme web en cours avec React.js et Laravel",
+      tech: ["React.js", "CSS3", "JavaScript","Laravel"],
+      img: handCity,
+    },
+    {
+      title: "GesEmpl",
+      description: "Plateforme web en cours avec React.js et Laravel",
+      tech: ["React.js", "Laravel"],
+      img: handCity,
     },
   ];
 
