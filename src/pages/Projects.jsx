@@ -10,7 +10,7 @@ function Projects() {
   const projects = [
     {
       title: "Jewelry",
-      description: "Site statique moderne pour bijoux, HTML5 + CSS3 + Bootstrap",
+      description: "Site statique moderne pour bijoux.",
       tech: ["HTML5", "CSS3", "Bootstrap"],
       img: Jewelry,
     },
@@ -28,15 +28,15 @@ function Projects() {
     },
     {
       title: "HandCity",
-      description: "Plateforme web en cours avec React.js et Laravel",
+      description: "HandCity est une plateforme web qui facilite la vie des citoyens en regroupant les services locaux, les événements, le signalement des problèmes urbains et la promotion du tourisme.",
       tech: ["React.js", "CSS3", "JavaScript","Laravel"],
       img: handCity,
     },
     {
       title: "GesEmpl",
-      description: "Plateforme web en cours avec React.js et Laravel",
+      description: "Plateforme web de gestion des emplois du temps pour le CMC BM.",
       tech: ["React.js", "Laravel"],
-      img: handCity,
+      img: GesEmpl,
     },
   ];
 
