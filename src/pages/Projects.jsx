@@ -1,10 +1,10 @@
 import { Cpu } from "lucide-react";
 import ProjectCard from "../components/ProjectCard";
-import Jewelry from '../pages/Jewelry.png';
-import Bijouya from '../pages/Bijouya.png';
-import BeldiRoyal from '../pages/BeldiRoyal.png';
-import handCity from '../pages/handCity.png';
-import GesEmpl from '../pages/GesEmpl.png';
+import Jewelry from './Jewelry.png';
+import Bijouya from './Bijouya.png';
+import BeldiRoyal from './BeldiRoyal.png';
+import handCity from './handCity.png';
+import GesEmpl from './GesEmpl.png';
 
 function Projects() {
   const projects = [
