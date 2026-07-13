@@ -11,6 +11,29 @@
   --shadow-soft: 0 20px 40px rgba(0, 0, 0, 0.4);
 }
 
+[data-theme="light"] {
+  --bg-primary: #f8fafc;
+  --text-primary: #0f172a;
+  --text-secondary: #475569;
+  --accent: #be123c;
+  --accent-secondary: #e11d48;
+  --glass-bg: rgba(255, 255, 255, 0.7);
+  --glass-border: rgba(0, 0, 0, 0.1);
+  --shadow-soft: 0 10px 30px rgba(0, 0, 0, 0.08);
+}
+
+/* Scroll Reveal Classes */
+.reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -48,7 +71,7 @@ nav {
   position: fixed;
   top: 0;
   width: 100%;
-  background: rgba(10, 10, 10, 0.6);
+  background: var(--glass-bg);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
   border-bottom: 1px solid var(--glass-border);
@@ -71,9 +94,7 @@ nav .logo {
   font-weight: 700;
   font-size: 1.8rem;
   cursor: pointer;
-  background: white;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  color: var(--text-primary);
   transition: transform 0.3s ease;
 }
 
@@ -97,7 +118,7 @@ nav .logo:hover {
 }
 
 .nav-links a:hover {
-  color: #ffffff;
+  color: var(--text-primary);
 }
 
 .nav-links a::after {
@@ -261,21 +282,22 @@ nav .logo:hover {
   margin: 0 auto;
 }
 
-/* Premium Cyber-Glass Showcase */
-.project-card {
+/* Premium Cyber-Glass Text Showcase */
+.project-card-text {
   border-radius: 20px;
   overflow: hidden;
   position: relative;
-  aspect-ratio: 16 / 10;
   min-height: 250px;
   cursor: pointer;
-  background: rgba(15, 15, 15, 0.6);
-  border: 1px solid rgba(255, 255, 255, 0.05);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--shadow-soft);
   transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  display: flex;
+  flex-direction: column;
 }
 
-.project-card::after {
+.project-card-text::after {
   content: '';
   position: absolute;
   top: 0; left: 0; right: 0; bottom: 0;
@@ -286,88 +308,74 @@ nav .logo:hover {
   z-index: 2;
 }
 
-.project-card:hover {
+.project-card-text:hover {
   transform: translateY(-8px) scale(1.03);
   box-shadow: 0 20px 40px rgba(90, 0, 22, 0.2);
   border-color: rgba(90, 0, 22, 0.5);
+  background: linear-gradient(to bottom, rgba(30, 30, 30, 0.8), rgba(90, 0, 22, 0.15));
 }
 
-.project-card:hover::after {
+.project-card-text:hover::after {
   box-shadow: inset 0 0 0 1px var(--accent);
 }
 
-.project-image-container {
-  width: 100%;
-  height: 100%;
-  position: relative;
-  background: radial-gradient(circle at center, rgba(30, 30, 30, 0.8) 0%, rgba(10, 10, 10, 1) 100%);
+.project-card-inner {
+  padding: 40px 30px;
   display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 30px;
-}
-
-.project-img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: all 0.6s cubic-bezier(0.25, 1, 0.5, 1);
-  filter: blur(5px) brightness(0.6);
-}
-
-.project-card:hover .project-img {
-  transform: scale(1.08);
-  filter: blur(0px) brightness(1);
-}
-
-.project-overlay {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  padding: 30px;
-  background: linear-gradient(to top, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.5) 50%, rgba(0,0,0,0) 100%);
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-end;
-  opacity: 0.8;
-  transition: opacity 0.3s ease;
+  flex-direction: column;
+  flex-grow: 1;
   z-index: 1;
 }
 
-.project-card:hover .project-overlay {
-  opacity: 1;
-}
-
-.project-preview-title {
-  color: #fff;
-  font-size: 1.4rem;
+.project-card-title {
+  color: var(--text-primary);
+  font-size: 1.8rem;
   font-weight: 700;
-  margin: 0;
-  transform: translateY(10px);
-  transition: transform 0.4s ease;
+  margin-bottom: 15px;
 }
 
-.project-card:hover .project-preview-title {
-  transform: translateY(0);
+.project-card-desc {
+  color: var(--text-secondary);
+  font-size: 1rem;
+  line-height: 1.6;
+  margin-bottom: 25px;
+  flex-grow: 1;
 }
 
-.hover-indicator {
+.project-card-tech-mini {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 25px;
+}
+
+.project-card-tech-mini span {
+  background: var(--glass-border);
+  color: var(--text-primary);
+  padding: 5px 12px;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  border: 1px solid var(--glass-border);
+}
+
+.btn-details {
+  align-self: flex-start;
+  padding: 10px 24px;
   background: linear-gradient(135deg, var(--accent) 0%, var(--accent-secondary) 100%);
-  padding: 8px 18px;
-  border-radius: 30px;
   color: white;
-  font-size: 0.85rem;
+  border: none;
+  border-radius: 30px;
   font-weight: 700;
-  opacity: 0;
-  transform: translateY(10px) translateX(10px);
-  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  font-size: 0.95rem;
+  cursor: pointer;
   box-shadow: 0 5px 15px rgba(90, 0, 22, 0.4);
+  transition: all 0.3s ease;
 }
 
-.project-card:hover .hover-indicator {
-  opacity: 1;
-  transform: translateY(0) translateX(0);
+.project-card-text:hover .btn-details {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(128, 0, 32, 0.6);
 }
 
 /* Modal Styles */
@@ -395,8 +403,8 @@ nav .logo:hover {
 }
 
 .project-modal-content {
-  background: rgba(15, 15, 15, 0.95);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: var(--bg-primary);
+  border: 1px solid var(--glass-border);
   border-radius: 24px;
   width: 100%;
   max-width: 900px;
@@ -418,9 +426,9 @@ nav .logo:hover {
   position: absolute;
   top: 20px;
   right: 20px;
-  background: rgba(255, 255, 255, 0.1);
+  background: var(--glass-border);
   border: none;
-  color: white;
+  color: var(--text-primary);
   width: 40px;
   height: 40px;
   border-radius: 50%;
@@ -438,19 +446,24 @@ nav .logo:hover {
   transform: rotate(90deg);
 }
 
-.modal-image {
+.modal-media {
   width: 100%;
   height: 50vh;
   min-height: 400px;
-  background: radial-gradient(circle at center, rgba(30, 30, 30, 0.8) 0%, rgba(10, 10, 10, 1) 100%);
+  background: #000;
   border-bottom: 1px solid rgba(255,255,255,0.05);
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 40px;
 }
 
-.modal-image img {
+.project-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.fallback-img {
   width: 100%;
   height: 100%;
   object-fit: contain;
@@ -465,7 +478,7 @@ nav .logo:hover {
 .modal-info h3 {
   font-size: 2.8rem;
   margin-bottom: 20px;
-  color: #fff;
+  color: var(--text-primary);
 }
 
 .modal-info p {
@@ -483,13 +496,13 @@ nav .logo:hover {
 }
 
 .project-tech span {
-  background: rgba(255, 255, 255, 0.1);
-  color: #ffffff;
+  background: var(--glass-border);
+  color: var(--text-primary);
   padding: 8px 18px;
   border-radius: 30px;
   font-size: 0.9rem;
   font-weight: 600;
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  border: 1px solid var(--glass-border);
   transition: all 0.3s ease;
 }
 
@@ -538,11 +551,11 @@ nav .logo:hover {
 }
 
 .skills-card {
-  background: rgba(15, 15, 15, 0.6);
-  border: 1px solid rgba(255, 255, 255, 0.05);
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
   border-radius: 24px;
   padding: 30px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  box-shadow: var(--shadow-soft);
   transition: all 0.4s ease;
   display: flex;
   flex-direction: column;
@@ -569,7 +582,7 @@ nav .logo:hover {
 
 .skills-card-header h3 {
   font-size: 1.6rem;
-  color: #fff;
+  color: var(--text-primary);
   margin: 0;
 }
 
@@ -584,10 +597,10 @@ nav .logo:hover {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  background: rgba(255, 255, 255, 0.05);
+  background: var(--glass-border);
   padding: 8px 20px;
   border-radius: 30px;
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  border: 1px solid var(--glass-border);
   transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
@@ -639,8 +652,8 @@ nav .logo:hover {
 }
 
 .service-card {
-  background: rgba(20, 20, 20, 0.6);
-  border: 1px solid rgba(255, 255, 255, 0.05);
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
   border-radius: 20px;
   padding: 40px 30px;
   width: 100%;
@@ -682,7 +695,7 @@ nav .logo:hover {
 
 .service-card h3 {
   font-size: 1.5rem;
-  color: #fff;
+  color: var(--text-primary);
   margin-bottom: 15px;
 }
 
@@ -723,7 +736,7 @@ nav .logo:hover {
 .footer-section {
   padding: 80px 20px 20px;
   background: linear-gradient(to top, rgba(90, 0, 22, 0.1), transparent);
-  border-top: 1px solid rgba(255,255,255,0.05);
+  border-top: 1px solid var(--glass-border);
   position: relative;
 }
 

@@ -20,7 +20,7 @@ function Services() {
   ];
 
   return (
-    <section id="services" className="services-section">
+    <section id="services" className="services-section reveal">
       <h2>Mes Services</h2>
       <p className="section-subtitle">Des solutions sur mesure pour concrétiser vos projets web.</p>
       

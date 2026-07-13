@@ -10,12 +10,12 @@ function Skills() {
     },
     {
       title: "Outils & Méthodes",
-      skills: ["GIT/GitHub", "Node.js", "Jira", "Agile/SCRUM"]
+      skills: ["GIT/GitHub", "Node.js", "Jira", "Agile/SCRUM", "Docker"]
     }
   ];
 
   return (
-    <section id="skills" className="skills-section">
+    <section id="skills" className="skills-section reveal">
       <h2>Mes Compétences</h2>
       <div className="skills-bento-grid">
         {categories.map((cat, index) => (
