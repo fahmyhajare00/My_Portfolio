@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
+import { createPortal } from 'react-dom';
 
 function ProjectCard({ title, description, tech, img, video, link }) {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
     <>
-      <div className="project-card-text" onClick={() => setIsOpen(true)}>
+      <div className="project-card-text" onClick={(e) => { e.preventDefault(); setIsOpen(true); }}>
         <div className="project-card-inner">
           <h3 className="project-card-title">{title}</h3>
           <p className="project-card-desc">{description}</p>
@@ -19,12 +20,22 @@ function ProjectCard({ title, description, tech, img, video, link }) {
               Visiter le site
             </a>
           ) : (
-            <button className="btn-details">Plus de détails</button>
+            <button 
+              type="button" 
+              className="btn-details" 
+              onClick={(e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                setIsOpen(true);
+              }}
+            >
+              Plus de détails
+            </button>
           )}
         </div>
       </div>
 
-      {isOpen && (
+      {isOpen && createPortal(
         <div className="project-modal-overlay" onClick={() => setIsOpen(false)}>
           <div className="project-modal-content" onClick={(e) => e.stopPropagation()}>
             <button className="close-modal" onClick={() => setIsOpen(false)}>×</button>
@@ -45,7 +56,8 @@ function ProjectCard({ title, description, tech, img, video, link }) {
               </div>
             </div>
           </div>
-        </div>
+        </div>,
+        document.body
       )}
     </>
   );
