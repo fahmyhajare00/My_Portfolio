@@ -25,7 +25,7 @@ function Navbar({ theme, toggleTheme }) {
             {theme === 'dark' ? <FaSun /> : <FaMoon />}
           </button>
           
-          <a href={`${import.meta.env.BASE_URL}cv.pdf`} target="_blank" rel="noopener noreferrer" className="btn-cv">CV</a>
+          <a href={`${import.meta.env.BASE_URL}CV_FAHMY_Hajare.pdf`} target="_blank" rel="noopener noreferrer" className="btn-cv">CV</a>
           <div className={`burger ${open ? "open" : ""}`} onClick={() => setOpen(!open)}>
             <div style={{ backgroundColor: 'var(--text-primary)' }}></div>
             <div style={{ backgroundColor: 'var(--text-primary)' }}></div>

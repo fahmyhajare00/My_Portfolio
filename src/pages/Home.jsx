@@ -15,7 +15,7 @@ function Home() {
         </p>
         <div className="home-actions" style={{ display: 'flex', gap: '20px', justifyContent: 'center', alignItems: 'center', marginBottom: '30px', flexWrap: 'wrap' }}>
           <a href="#projects" className="btn-primary">Voir mes projets</a>
-          <a href={`${import.meta.env.BASE_URL}cv.pdf`} target="_blank" rel="noopener noreferrer" className="btn-cv" style={{ padding: '16px 40px', fontSize: '1.1rem', borderRadius: '50px' }}>
+          <a href={`${import.meta.env.BASE_URL}CV_FAHMY_Hajare.pdf`} target="_blank" rel="noopener noreferrer" className="btn-cv" style={{ padding: '16px 40px', fontSize: '1.1rem', borderRadius: '50px' }}>
             Télécharger mon CV
           </a>
         </div>
